@@ -8,10 +8,11 @@ class Posts extends Component {
         if( this.props.posts ) {
             posts = this.props.posts.map( post => {
                 return (
-                    <Post />
+                    <Post key="" post={ post }/>
                 );
             });
         }
+
         return (
             <div className="Posts">
                 {posts}
@@ -21,8 +22,7 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-    // todos: React.PropTypes.array,
-    // onDelete: React.PropTypes.func
+    
 }
 
 export default Posts;

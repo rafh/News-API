@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainSearch from './MainSearch';
+import Content from './Content';
 import './index.scss';
 
 ReactDOM.render(
-  <MainSearch />,
+  <Content />,
   document.getElementById('root')
 );
