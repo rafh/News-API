@@ -7,19 +7,37 @@ class Post extends Component {
 
         // iterate through Articles array
         var articles = [];
-        var articles = this.props.post.articles.map( article => {
-            // var bodyStyle = document.getElementsByClassName('Single');
-            // bodyStyle.backgroundImage = {article.urlToImage};
+        articles = this.props.post.articles.map( article => {
+
+            //remove mm:ss.sTZD from date/time
+            // var time = article.publishedAt;
+            // time = time.substring(0, 10);
+            // var year = time.substring(0, 4);
+            // var mth = time.substring(5, 7);
+            // var day = time.substring(8, 10);
+            //
+            // // format month by matching value with idx of arrray
+            // function formatDate(mth) {
+            //     //remove first character if it's 0
+            //     if(mth.charAt(0) === '0'){
+            //         mth = mth.substr(1);
+            //     }
+            //     var monthNames = ["January", "February", "March", "April", "May", "June",
+            //         "July", "August", "September", "October", "November", "December"
+            //     ];
+            //
+            //     return(monthNames[mth - 1])
+            // }
+
             return (
                 <div key={1 + Math.random()} className="Single">
-                    <a href={article.url} target="_blank">
-                        <img src={article.urlToImage} alt={article.title}/>
-
+                    <a href={article.url} target="_blank" className="Single__image" style={{backgroundImage: `url(${article.urlToImage})`}}>
                     </a>
-                    <div className="Single_wraper">
+                    <div className="Single__content">
                         <h4>{article.title}</h4>
-                        <span>{article.publishedAt} By: </span><i>{article.author}</i>
-                        <p>{article.description}</p>
+                        <span>{article.publishedAt}</span>
+                        <p>By: <i>{article.author}</i></p>
+                        <p>{article.description}<a href={article.url} target="_blank" className="read-more" >Read More</a></p>
                     </div>
                 </div>
             )
