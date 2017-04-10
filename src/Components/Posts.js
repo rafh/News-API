@@ -13,6 +13,8 @@ class Posts extends Component {
             });
         }
 
+        console.log(this.props.posts)
+
         return (
             <div className="Posts">
                 {posts}
@@ -22,7 +24,7 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-    
+
 }
 
 export default Posts;

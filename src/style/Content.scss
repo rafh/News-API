@@ -1,11 +1,35 @@
+$theme-blue: #194771;
+$theme-orange: #F74525;
+$theme-red: #CF3423;
+$theme-maroon: #984E5F;
+$theme-white: #FBF7F3;
+
+.attribution {
+    font-size: 9px;
+    font-style: italic;
+    padding: 10px;
+    text-align: right;
+    width: 100%;
+}
+
 .Search {
     background-color: #222;
-    height: 150px;
-    padding: 20px;
+    padding: 20px 0 30px;
     color: white;
-    background: linear-gradient(40deg,#0D1426 35%,#6E0B25 90%);
+    background: linear-gradient(40deg,$theme-red 35%,$theme-orange 90%);
     text-align: center;
     margin-bottom: 20px;
+    width: 100%;
+    z-index: 10;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.4);
+
+    @media (min-width: 850px) {
+        position: fixed;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
 
     .Search__wrap {
         position: relative;
@@ -14,7 +38,7 @@
         height: 3em;
         margin: auto;
         line-height: 3;
-        background: #D5DCE2;
+        background: $theme-white;
         overflow: hidden;
         border-radius: .25em;
 
@@ -25,14 +49,14 @@
             right: 0;
             bottom: 0;
             padding: 0 1em;
-            background: #0D1426;
+            background: $theme-blue;
             pointer-events: none;
             transition: .25s all ease;
         }
 
         &:hover {
             &:after {
-                color: #6E0B25;
+                color: $theme-red;
             }
         }
     }
@@ -42,7 +66,7 @@
         outline: 0;
         box-shadow: none;
         border: 0;
-        background: #D5DCE2;
+        background: $theme-white;
         background-image: none;
 
         width: 100%;
@@ -60,28 +84,45 @@
     }
 }
 
-.Content {
-
-    p {
-        color: #333;
-    }
-
-}
-
 .Post {
     overflow: hidden;
     max-width: 1200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: auto;
 }
 
 .Single {
+    position: relative;
+    width: calc(100% - 100px);
+    text-align: center;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 30px;
+    margin: 19px;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.36);
+    overflow: hidden;
 
-    @media (min-width: 875px) {
-        display: flex;
-        flex-direction: row;
+    @media (min-width: 850px) {
+        width: 50%;
+        text-align: center;
+        width: calc(50% - 100px);
+        transition: box-shadow 0.5s;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.36);
+        }
+
+        &:first-child,
+        &:nth-child(2) {
+            margin-top: 180px;
+        }
     }
 
     .Single__image {
+        animation: img-load 1s ease-in-out;
         overflow: hidden;
         width: 100%;
         height: 300px;
@@ -89,10 +130,13 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
 
-        @media (min-width: 875px) {
+        @media (min-width: 850px) {
             display: inline-table;
-            width: 500px;
         }
     }
 
@@ -100,20 +144,15 @@
         max-width: 100%;
         object-fit: cover;
 
-        @media (min-width: 875px) {
+        @media (min-width: 850px) {
             height: 100%
-        }
-    }
-
-    .Single__image {
-        @media (min-width: 875px) {
-
         }
     }
 
     .Single__content {
         position: relative;
-        padding: 30px;
+        margin-top: 300px;
+        text-align: left;
 
         &:before {
             content: "\A";
@@ -123,15 +162,14 @@
             position: absolute;
             left: 50%;
             transform: rotate(90deg);
-            top: -25px;
+            top: -63px;
         }
 
-        @media (min-width: 875px) {
+        @media (min-width: 850px) {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            width: calc(100% - 550px);
-            padding: 10px 30px;
+            padding: 0;
         }
     }
 
@@ -141,6 +179,7 @@
     }
 
     p {
+        color: #333;
         margin-top: 10px;
         margin-bottom: 10px;
     }
@@ -157,5 +196,7 @@
     }
 }
 
-.image { opacity: 0; transition: opacity 0.3s; }
-.image-loaded { opacity: 1; }
+@keyframes img-load {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}

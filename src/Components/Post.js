@@ -47,6 +47,7 @@ class Post extends Component {
         return (
             <div className="Post">
                 {articles}
+                <div className="attribution">Powered by News API</div>
             </div>
         );
     }

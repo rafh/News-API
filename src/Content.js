@@ -13,7 +13,7 @@ class Content extends Component {
         this.state = {
             posts: [],
             // value: 'google-news&sortBy=top'
-            value: 'techcrunch&sortBy=latest'
+            value: 'polygon&sortBy=top',
         }
 
         this.change = this.change.bind(this);
@@ -21,7 +21,7 @@ class Content extends Component {
 
     //Ajax Request
     getNews(value) {
-        var api = 'e8d4334db4d949959ede814fa724577a'
+        var api = '016e628857dd408f8063c17dd2a631f1'
         $.ajax({
             // url: 'https://newsapi.org/v1/source=the-next-web&sortBy=latest&apiKey=e8d4334db4d949959ede814fa724577a',
             url: 'https://newsapi.org/v1/articles?source='+ this.state.value + '&apiKey=' + api ,
@@ -72,8 +72,7 @@ class Content extends Component {
                     <h2>It's all in one place</h2>
                     <div className="Search__wrap">
                         <select value={this.props.value} onChange={this.change}>
-                            <option defaultValue value="google-news&sortBy=top">Google</option>
-                            <option value="polygon&sortBy=top">Polygon</option>
+                            <option ref="Polygon" value="polygon&sortBy=top">Polygon</option>
                             <option value="recode&sortBy=top">Recode</option>
                             <option value="techcrunch&sortBy=top">Tech Crunch</option>
                             <option value="techradar&sortBy=top">Tech Radar</option>
