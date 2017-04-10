@@ -9,25 +9,25 @@ class Post extends Component {
         var articles = [];
         articles = this.props.post.articles.map( article => {
 
-            //remove mm:ss.sTZD from date/time
-            // var time = article.publishedAt;
-            // time = time.substring(0, 10);
-            // var year = time.substring(0, 4);
-            // var mth = time.substring(5, 7);
-            // var day = time.substring(8, 10);
-            //
-            // // format month by matching value with idx of arrray
-            // function formatDate(mth) {
-            //     //remove first character if it's 0
-            //     if(mth.charAt(0) === '0'){
-            //         mth = mth.substr(1);
-            //     }
-            //     var monthNames = ["January", "February", "March", "April", "May", "June",
-            //         "July", "August", "September", "October", "November", "December"
-            //     ];
-            //
-            //     return(monthNames[mth - 1])
-            // }
+            // remove mm:ss.sTZD from date/time
+            var time = article.publishedAt;
+            time = time.substring(0, 10);
+            var year = time.substring(0, 4);
+            var mth = time.substring(5, 7);
+            var day = time.substring(8, 10);
+
+            // format month by matching value with idx of arrray
+            function formatDate(mth) {
+                //remove first character if it's 0
+                if(mth.charAt(0) === '0'){
+                    mth = mth.substr(1);
+                }
+                var monthNames = ["January", "February", "March", "April", "May", "June",
+                    "July", "August", "September", "October", "November", "December"
+                ];
+
+                return(monthNames[mth - 1])
+            }
 
             return (
                 <div key={1 + Math.random()} className="Single">
@@ -35,9 +35,10 @@ class Post extends Component {
                     </a>
                     <div className="Single__content">
                         <h4>{article.title}</h4>
-                        <span>{article.publishedAt}</span>
-                        <p>By: <i>{article.author}</i></p>
-                        <p>{article.description}<a href={article.url} target="_blank" className="read-more" >Read More</a></p>
+                        <span>{formatDate(mth)}-{day}-{year}</span>
+                        <p className="Single__author">By: <i>{article.author}</i></p>
+                        <p>{article.description}</p>
+                        <a href={article.url} target="_blank" className="read-more" >Read More</a>
                     </div>
                 </div>
             )
