@@ -62,10 +62,12 @@ class Content extends Component {
                     <div className="Search__wrap">
                         <select value={this.props.value} onChange={this.change}>
                             <option ref="Polygon" value="polygon&sortBy=top">Polygon</option>
+                            <option ref="Mashable" value="mashable&sortBy=top">Mashable</option>
+                            <option value="new-scientist&sortBy=top">New Scientist</option>
                             <option value="recode&sortBy=top">Recode</option>
                             <option value="techcrunch&sortBy=top">Tech Crunch</option>
                             <option value="techradar&sortBy=top">Tech Radar</option>
-                            <option value="the-next-web&sortBy=latest">TNW</option>
+                            <option value="the-next-web&sortBy=latest">TNW (The Next Web)</option>
                             <option value="the-verge&sortBy=top">The Verge</option>
                         </select>
                     </div>
