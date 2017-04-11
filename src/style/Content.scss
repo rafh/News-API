@@ -12,6 +12,11 @@ body {
     background-color: $theme-white;
 }
 
+.logo {
+    width: 25px;
+    margin-right: 10px;
+}
+
 .attribution {
     font-size: 9px;
     font-style: italic;
@@ -171,7 +176,7 @@ body {
             border-width: 20px 28px 20px 0;
             border-color: transparent white transparent transparent;
             position: absolute;
-            left: 50%;
+            left: calc(50% - 14px);
             transform: rotate(90deg);
             top: -63px;
         }

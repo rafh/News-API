@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Articles from './Articles'
+import logo from './logo.svg'
 
 class Post extends Component {
 
@@ -29,9 +29,13 @@ class Post extends Component {
                 return(monthNames[mth - 1])
             }
 
+            var cardImg = {
+                backgroundImage: `url(${article.urlToImage})`
+            }
+
             return (
                 <div key={1 + Math.random()} className="Single">
-                    <a href={article.url} target="_blank" className="Single__image" style={{backgroundImage: `url(${article.urlToImage})`}}>
+                    <a ref={this.waitForLoad} href={article.url} id="test" target="_blank" className="Single__image" style={cardImg}>
                     </a>
                     <div className="Single__content">
                         <h3>{article.title}</h3>
@@ -47,7 +51,8 @@ class Post extends Component {
         return (
             <div className="Post">
                 {articles}
-                <div className="attribution">Powered by News API</div>
+
+                <div className="attribution"><img src={logo} className="logo"/> Powered by News API</div>
             </div>
         );
     }

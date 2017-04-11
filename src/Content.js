@@ -12,8 +12,8 @@ class Content extends Component {
         super(props);
         this.state = {
             posts: [],
-            // value: 'google-news&sortBy=top'
             value: 'polygon&sortBy=top',
+            id: 'Polygon'
         }
 
         this.change = this.change.bind(this);
@@ -30,15 +30,12 @@ class Content extends Component {
 
     }
 
-    scrollPos() {
-
-    }
-
-
     // Change the axios request depending on selected option
     change(event) {
+        var id = event.nativeEvent.target.selectedIndex;
+        this.setState({id: event.nativeEvent.target[id].text})
+        console.log('native: ' + event.nativeEvent.target[id].text);
         var value = event.target.value;
-
         let api = 'https://newsapi.org/v1/articles?source='+ value + '&sortBy=latest&apiKey=e8d4334db4d949959ede814fa724577a'
         axios.get(api)
             .then((data) => {
@@ -51,7 +48,6 @@ class Content extends Component {
 
     componentDidMount(value) {
         this.getNews();
-        this.scrollPos();
     }
 
     render() {
@@ -61,7 +57,7 @@ class Content extends Component {
                     <h2>It's all in one place</h2>
                     <div className="Search__wrap">
                         <select value={this.props.value} onChange={this.change}>
-                            <option ref="Polygon" value="polygon&sortBy=top">Polygon</option>
+                            <option ref='name' value="polygon&sortBy=top">Polygon</option>
                             <option ref="Mashable" value="mashable&sortBy=top">Mashable</option>
                             <option value="new-scientist&sortBy=top">New Scientist</option>
                             <option value="recode&sortBy=top">Recode</option>
