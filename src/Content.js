@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
-import $ from 'jquery';
+// import $ from 'jquery';
+import axios from "axios";
 import Posts from './Components/Posts';
 // import MainSearch from './MainSearch';
 import './style/Content.scss';
@@ -17,52 +17,41 @@ class Content extends Component {
         }
 
         this.change = this.change.bind(this);
+        this.apiUrl = 'https://newsapi.org/v1/articles?source='+ this.state.value + '&apiKey=016e628857dd408f8063c17dd2a631f1';
     }
 
-    //Ajax Request
+    //Axios Request
     getNews(value) {
-        var api = '016e628857dd408f8063c17dd2a631f1'
-        $.ajax({
-            // url: 'https://newsapi.org/v1/source=the-next-web&sortBy=latest&apiKey=e8d4334db4d949959ede814fa724577a',
-            url: 'https://newsapi.org/v1/articles?source='+ this.state.value + '&apiKey=' + api ,
-            dataType: 'json',
-            cache: true,
-            success: function(data) {
-                this.setState({ posts: [data] }, function() {
-                    console.log(data);
-                })
-            }.bind(this),
-            error: function(xhr, status, err) {
-                console.log(err);
-            }
-        })
+        axios.get(this.apiUrl)
+            .then((data) => {
+            // Set state with result
+            this.setState({ posts: [data.data]})
+        });
+
     }
 
-    // Change the request depending on selected option
+    scrollPos() {
+
+    }
+
+
+    // Change the axios request depending on selected option
     change(event) {
-        // event.preventDefault(event.target.value);
-        // this.setState({value: event.target.value});
         var value = event.target.value;
 
-        var api = 'e8d4334db4d949959ede814fa724577a'
-        $.ajax({
-            // url: 'https://newsapi.org/v1/source=the-next-web&sortBy=latest&apiKey=e8d4334db4d949959ede814fa724577a',
-            url: 'https://newsapi.org/v1/articles?source='+ value + '&sortBy=latest&apiKey=' + api ,
-            dataType: 'json',
-            cache: true,
-            success: function(data) {
-                this.setState({ posts: [data] }, function() {
-                    console.log(data);
-                })
-            }.bind(this),
-            error: function(xhr, status, err) {
-                console.log(err);
-            }
-        })
+        let api = 'https://newsapi.org/v1/articles?source='+ value + '&sortBy=latest&apiKey=e8d4334db4d949959ede814fa724577a'
+        axios.get(api)
+            .then((data) => {
+            // Set state with result
+            this.setState({ posts: [data.data]}, function() {
+               console.log(data.data);
+           })
+        });
     }
 
     componentDidMount(value) {
         this.getNews();
+        this.scrollPos();
     }
 
     render() {

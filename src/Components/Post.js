@@ -34,9 +34,9 @@ class Post extends Component {
                     <a href={article.url} target="_blank" className="Single__image" style={{backgroundImage: `url(${article.urlToImage})`}}>
                     </a>
                     <div className="Single__content">
-                        <h4>{article.title}</h4>
+                        <h3>{article.title}</h3>
                         <span>{formatDate(mth)}-{day}-{year}</span>
-                        <p className="Single__author">By: <i>{article.author}</i></p>
+                        <p className="Single__author"><span>By: </span><i>{article.author}</i></p>
                         <p>{article.description}</p>
                         <a href={article.url} target="_blank" className="read-more" >Read More</a>
                     </div>

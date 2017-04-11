@@ -3,6 +3,14 @@ $theme-orange: #F74525;
 $theme-red: #CF3423;
 $theme-maroon: #984E5F;
 $theme-white: #FBF7F3;
+@import url('https://fonts.googleapis.com/css?family=Roboto:900|Raleway:200');
+
+$thick-font: 'Roboto', sans-serif;
+$thin-font: 'Raleway', sans-serif;
+
+body {
+    background-color: $theme-white;
+}
 
 .attribution {
     font-size: 9px;
@@ -29,6 +37,7 @@ $theme-white: #FBF7F3;
 
     h2 {
         margin-top: 0;
+        font-family: $thick-font;
     }
 
     .Search__wrap {
@@ -38,7 +47,7 @@ $theme-white: #FBF7F3;
         height: 3em;
         margin: auto;
         line-height: 3;
-        background: $theme-white;
+        background: white;
         overflow: hidden;
         border-radius: .25em;
 
@@ -66,9 +75,9 @@ $theme-white: #FBF7F3;
         outline: 0;
         box-shadow: none;
         border: 0;
-        background: $theme-white;
+        background: white;
         background-image: none;
-
+        font-family: $thin-font;
         width: 100%;
         height: 50px;
         margin: 0;
@@ -97,18 +106,19 @@ $theme-white: #FBF7F3;
     position: relative;
     width: calc(100% - 100px);
     text-align: center;
-    border: 1px solid lightgray;
+    border: 1px solid #F0EDEB;
     border-radius: 3px;
     padding: 30px;
     margin: 19px;
     box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.36);
     overflow: hidden;
+    background-color: white;
 
     @media (min-width: 850px) {
         width: 50%;
         text-align: center;
         width: calc(50% - 100px);
-        transition: box-shadow 0.5s;
+        transition: box-shadow 0.3s;
         box-shadow: none;
 
         &:hover {
@@ -153,6 +163,7 @@ $theme-white: #FBF7F3;
         position: relative;
         margin-top: 300px;
         text-align: left;
+        font-family: $thin-font;
 
         &:before {
             content: "\A";
@@ -173,7 +184,8 @@ $theme-white: #FBF7F3;
         }
     }
 
-    h4 {
+    h3 {
+        font-family: $thick-font;
         margin-top: 0;
         margin-bottom: 10px;
     }
@@ -186,13 +198,25 @@ $theme-white: #FBF7F3;
 
     .Single__author {
         font-size: 13px;
+        margin-bottom: 0;
+
+        span {
+            color: $theme-orange;
+            font-weight: bold;
+        }
     }
 
     .read-more {
         display: inline-table;
         text-decoration: none;
-        color: #6E0B25;
+        font-family: $thick-font;
+        color: $theme-blue;
         font-weight: bold;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $theme-orange
+        }
     }
 }
 
