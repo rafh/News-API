@@ -6,6 +6,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
+ "homepage": "http://myname.github.io/news-stop",
   "devDependencies": {
     "autoprefixer": "6.7.2",
     "axios": "^0.16.1",
