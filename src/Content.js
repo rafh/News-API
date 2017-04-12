@@ -12,7 +12,7 @@ class Content extends Component {
         super(props);
         this.state = {
             posts: [],
-            value: 'polygon&sortBy=top',
+            value: 'buzzfeed&sortBy=top',
             id: 'Polygon'
         }
 
@@ -57,8 +57,9 @@ class Content extends Component {
                     <h2>It's all in one place</h2>
                     <div className="Search__wrap">
                         <select value={this.props.value} onChange={this.change}>
-                            <option ref='name' value="polygon&sortBy=top">Polygon</option>
-                            <option ref="Mashable" value="mashable&sortBy=top">Mashable</option>
+                            <option value="buzzfeed&sortBy=top">Buzzfeed</option>
+                            <option value="polygon&sortBy=top">Polygon</option>
+                            <option value="mashable&sortBy=top">Mashable</option>
                             <option value="new-scientist&sortBy=top">New Scientist</option>
                             <option value="recode&sortBy=top">Recode</option>
                             <option value="techcrunch&sortBy=top">Tech Crunch</option>

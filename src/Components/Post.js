@@ -11,22 +11,30 @@ class Post extends Component {
 
             // remove mm:ss.sTZD from date/time
             var time = article.publishedAt;
-            time = time.substring(0, 10);
-            var year = time.substring(0, 4);
-            var mth = time.substring(5, 7);
-            var day = time.substring(8, 10);
+            if(time != null) {
+                time = time.substring(0, 10);
+                var year = time.substring(0, 4);
+                var mth = time.substring(5, 7);
+                var day = time.substring(8, 10);
+            }
+
 
             // format month by matching value with idx of arrray
             function formatDate(mth) {
-                //remove first character if it's 0
-                if(mth.charAt(0) === '0'){
-                    mth = mth.substr(1);
-                }
-                var monthNames = ["January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"
-                ];
+                if(mth) {
+                    //remove first character if it's 0
+                    if(mth.charAt(0) === '0'){
+                        mth = mth.substr(1);
+                    }
+                    var monthNames = ["January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"
+                    ];
 
-                return(monthNames[mth - 1])
+                    return(monthNames[mth - 1])
+                }else {
+                    return ''
+                }
+
             }
 
             var cardImg = {
@@ -39,8 +47,10 @@ class Post extends Component {
                     </a>
                     <div className="Single__content">
                         <h3>{article.title}</h3>
-                        <span>{formatDate(mth)}-{day}-{year}</span>
-                        <p className="Single__author"><span>By: </span><i>{article.author}</i></p>
+                        {/*check if prop: publishedAt is provided*/}
+                        <span>{formatDate(mth)}{day ? '-' + day + '-' : ''}{year}</span>
+                        {/*check if prop: author is provided*/}
+                        <p className="Single__author"><span>By: </span><i>{article.author ? article.author : 'Anonymous'}</i></p>
                         <p>{article.description}</p>
                         <a href={article.url} target="_blank" className="read-more" >Read More</a>
                     </div>
