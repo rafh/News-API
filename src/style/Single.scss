@@ -1,0 +1,119 @@
+@import './Variables.scss';
+
+.Single {
+    position: relative;
+    width: calc(100% - 100px);
+    text-align: center;
+    border: 1px solid #F0EDEB;
+    border-radius: 3px;
+    padding: 30px;
+    margin: 19px;
+    box-shadow: 1px 1px 10px rgba(128, 128, 128, 0.36);
+    overflow: hidden;
+    background-color: white;
+
+    @media (min-width: 850px) {
+        width: 50%;
+        text-align: center;
+        width: calc(50% - 100px);
+        transition: box-shadow 0.3s;
+        box-shadow: none;
+
+        &:hover {
+            box-shadow: 4px 4px 10px rgba(128, 128, 128, 0.36);
+        }
+
+        &:first-child,
+        &:nth-child(2) {
+            margin-top: 180px;
+        }
+    }
+
+    .Single__image {
+        animation: img-load 1s ease-in-out;
+        overflow: hidden;
+        width: 100%;
+        height: 300px;
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+
+        @media (min-width: 850px) {
+            display: inline-table;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        object-fit: cover;
+
+        @media (min-width: 850px) {
+            height: 100%
+        }
+    }
+
+    .Single__content {
+        position: relative;
+        margin-top: 300px;
+        text-align: left;
+        font-family: $thin-font;
+
+        &:before {
+            content: "\A";
+            border-style: solid;
+            border-width: 20px 28px 20px 0;
+            border-color: transparent white transparent transparent;
+            position: absolute;
+            left: calc(50% - 14px);
+            transform: rotate(90deg);
+            top: -63px;
+        }
+
+        @media (min-width: 850px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+        }
+    }
+
+    h3 {
+        font-family: $thick-font;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #333;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Single__author {
+        font-size: 13px;
+        margin-bottom: 0;
+
+        span {
+            color: $theme-orange;
+            font-weight: bold;
+        }
+    }
+
+    .read-more {
+        display: inline-table;
+        text-decoration: none;
+        font-family: $thick-font;
+        color: $theme-blue;
+        font-weight: bold;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $theme-orange
+        }
+    }
+}

@@ -1,6 +1,6 @@
 ## Synopsis
 
-A project I created for fun that pulls in the latest stories from various news organizations.
+A project I created (for fun) that pulls in the latest stories from various news organizations.
 
 ## Installation
 
@@ -15,7 +15,7 @@ https://newsapi.org/
 
 ## Contributors
 
-Just me - thanks to the help of the newsapi ofcourse
+Just me - thanks to the help of the newsapi
 
 ## License
 

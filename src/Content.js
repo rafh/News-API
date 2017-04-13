@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-// import $ from 'jquery';
 import axios from "axios";
 import Posts from './Components/Posts';
-// import MainSearch from './MainSearch';
 import './style/Content.scss';
 
 
