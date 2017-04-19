@@ -30,6 +30,7 @@ class Content extends Component {
 
     // Change the axios request depending on selected option
     change(event) {
+        window.scrollTo(0,0);
         var id = event.nativeEvent.target.selectedIndex;
         this.setState({id: event.nativeEvent.target[id].text})
         console.log('native: ' + event.nativeEvent.target[id].text);
